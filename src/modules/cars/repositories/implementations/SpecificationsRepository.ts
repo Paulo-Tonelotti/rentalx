@@ -1,5 +1,5 @@
-import { Specification } from "../model/Specification";
-import { ISpecificationRepository,ICreateSpecificationDTO } from "./ISpecificationsRespository";
+import { Specification } from "../../model/Specification";
+import { ISpecificationRepository,ICreateSpecificationDTO } from "../ISpecificationsRespository";
 
 class SpecificationsRepository implements ISpecificationRepository {
     private specifications: Specification[];
