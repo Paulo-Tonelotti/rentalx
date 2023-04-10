@@ -2,10 +2,12 @@ import { DataSource } from "typeorm";
 
 const db = new DataSource({
   type: "postgres",
+  port: 5432,
   host: "localhost",
   username: "docker",
   password:"ignite",
-  database: "rentx"
+  database: "rentx",
+  migrations: ["./src/database/migrations/*.ts"]
 });
 
 db.initialize()
