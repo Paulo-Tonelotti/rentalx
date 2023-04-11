@@ -1,21 +1,17 @@
 import { DataSource } from "typeorm";
+import { Category } from "../modules/cars/entities/Category";
 
 const db = new DataSource({
   type: "postgres",
-  port: 5432,
   host: "localhost",
+  port: 5432,
   username: "docker",
   password:"ignite",
   database: "rentx",
-  migrations: ["./src/database/migrations/*.ts"]
+  migrations: ["./src/database/migrations/*.ts"],
+  entities: [Category]
 });
 
-db.initialize()
-    .then(() => {
-        console.log("Data Source has been initialized!")
-    })
-    .catch((err) => {
-        console.error("Error during Data Source initialization", err)
-    })
 
-export { db };
+
+export default db;
