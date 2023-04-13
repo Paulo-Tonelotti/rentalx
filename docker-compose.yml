@@ -16,8 +16,8 @@ services:
   app:
     build: .
     container_name: rentx
-    env_file:
-      - .env
+    environment:
+      - DATABASE_URL=postgresql://docker:ignite@database_ignite:5432/rentx
     ports:
       - 3333:3333
     volumes:
