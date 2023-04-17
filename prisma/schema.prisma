@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
-  binaryTargets = ["native","windows", "debian-openssl-1.1.x"]
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows", "debian-openssl-1.1.x"]
 }
 
 datasource db {
@@ -21,10 +21,21 @@ model Category {
 }
 
 model Specification {
-  id String @id @default(uuid())
-  name String
+  id          String   @id @default(uuid())
+  name        String
   description String
-  created_at DateTime @default(now())
-  
+  created_at  DateTime @default(now())
+
   @@map("specifications")
+}
+
+model Users {
+  id             String   @id @default(uuid())
+  name           String
+  username       String   @unique
+  password       String
+  email          String
+  driver_license String
+  admin          Boolean  @default(false)
+  created_at     DateTime @default(now())
 }
