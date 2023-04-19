@@ -5,6 +5,8 @@ WORKDIR /usr/app
 
 COPY package.json ./
 
+VOLUME /usr/app
+
 RUN npm install
 
 COPY . .
