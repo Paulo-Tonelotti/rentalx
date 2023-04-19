@@ -26,6 +26,16 @@ class UsersRespository implements IUsersRepository {
     return user;
   }
 
+  async findById(id: string): Promise<User> {
+    const user = await database.users.findFirst({
+      where: {
+        id
+      }
+    })
+
+    return user;
+  }
+
 }
 
 export { UsersRespository };
