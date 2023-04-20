@@ -5,9 +5,13 @@ WORKDIR /usr/app
 
 COPY package.json ./
 
+COPY prisma ./prisma
+
 VOLUME /usr/app
 
 RUN npm install
+
+RUN npx prisma generate
 
 COPY . .
 
